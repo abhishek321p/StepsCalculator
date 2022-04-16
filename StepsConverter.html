@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+    <title>Steps Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+<body>
+    <div id="app">
+        <section class="hero is-primary is-centered">
+            <div class="hero-body">
+              <p class="title" style="text-align:center">
+                Steps Converter
+              </p>
+              <p class="subtitle" style="text-align:center">
+                Converts various activities to Steps.
+              </p>
+            </div>
+          </section>
+        <section class="section">
+            <div class="container">
+                <div class="columns is-mobile is-centered">
+                    <div class="column is-half">
+                        <div class="box">
+                            <div class="field">
+                                <label for="" class="label">Total Rowing minutes</label>
+                                <div class="control">
+                                    <input type="text" required placeholder="Total Rowing minutes" class="input is-family-monospace" type="number" maxlength="8" v-model="tRMins">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="" class="label">Total Cycling minutes</label>
+                                <div class="control">
+                                    <input type="text" required placeholder="Total Cycling minutes" class="input is-family-monospace" type="number" maxlength="16" v-model="tCMins">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="" class="label">Total Skiing minutes</label>
+                                <div class="control">
+                                    <input type="text" required placeholder="Total Skiing minutes" class="input is-family-monospace" type="number" maxlength="16" v-model="tSkiMins">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="" class="label">Total Stair climbing minutes</label>
+                                <div class="control">
+                                    <input type="text" required placeholder="Total Stair climbing minutes" class="input is-family-monospace" type="number" maxlength="16" v-model="tStcMins">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="" class="label">Total Swimming minutes</label>
+                                <div class="control">
+                                    <input type="text" required placeholder="Total Swimming minutes" class="input is-family-monospace" type="number" maxlength="16" v-model="tSwMins">
+                                </div>
+                            </div>
+
+                            <hr>
+                            <label for="" class="label">total steps after conversion</label>
+                            <input type="text" placeholder="Total steps after conversion" class="input is-family-monospace" v-model="tSteps">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    tRMins: Number(0),
+                    tCMins: Number(0),
+                    tSkiMins: Number(0),
+                    tStcMins: Number(0),
+                    tSwMins: Number(0)
+                }
+            },
+            computed: {
+                tSteps: {
+                    get() {
+                        return (this.tCMins * 130) + (this.tRMins * 101) + (this.tSkiMins * 109) + (this.tStcMins * 181) + (this.tSwMins * 174)
+                    }
+                }
+            }
+        }).mount('#app')
+
+    </script>
+</body>
+</html>
