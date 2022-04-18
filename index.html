@@ -35,28 +35,6 @@
                                     <input type="text" required placeholder="Total Cycling minutes" class="input is-family-monospace" type="number" maxlength="16" v-model="tCMins">
                                 </div>
                             </div>
-
-                            <div class="field">
-                                <label for="" class="label">Total Skiing minutes</label>
-                                <div class="control">
-                                    <input type="text" required placeholder="Total Skiing minutes" class="input is-family-monospace" type="number" maxlength="16" v-model="tSkiMins">
-                                </div>
-                            </div>
-
-                            <div class="field">
-                                <label for="" class="label">Total Stair climbing minutes</label>
-                                <div class="control">
-                                    <input type="text" required placeholder="Total Stair climbing minutes" class="input is-family-monospace" type="number" maxlength="16" v-model="tStcMins">
-                                </div>
-                            </div>
-
-                            <div class="field">
-                                <label for="" class="label">Total Swimming minutes</label>
-                                <div class="control">
-                                    <input type="text" required placeholder="Total Swimming minutes" class="input is-family-monospace" type="number" maxlength="16" v-model="tSwMins">
-                                </div>
-                            </div>
-
                             <hr>
                             <label for="" class="label">total steps after conversion</label>
                             <input type="text" placeholder="Total steps after conversion" class="input is-family-monospace" v-model="tSteps">
@@ -71,16 +49,13 @@
             data() {
                 return {
                     tRMins: Number(0),
-                    tCMins: Number(0),
-                    tSkiMins: Number(0),
-                    tStcMins: Number(0),
-                    tSwMins: Number(0)
+                    tCMins: Number(0)
                 }
             },
             computed: {
                 tSteps: {
                     get() {
-                        return (this.tCMins * 130) + (this.tRMins * 101) + (this.tSkiMins * 109) + (this.tStcMins * 181) + (this.tSwMins * 174)
+                        return (this.tCMins * 130) + (this.tRMins * 101)
                     }
                 }
             }
